@@ -6,13 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>avengers</ion-title>
+  <ion-navbar color="marvel-color">
+    <ion-title>Avengers</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-card *ngFor="let avenger of avengers">
+    <ion-card-header>
+      {{avenger.name}}
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{avenger.thumbnail.path}}.{{avenger.thumbnail.extension}}">
+      {{avenger.description}}
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <h3>
+      <p>
 
+        Choose one character below!
+      </p>
+    </h3>
+    <ion-item *ngFor="let av of all_avengers">
+      {{av.name}}
+    </ion-item>
+  </ion-list>
 </ion-content>
