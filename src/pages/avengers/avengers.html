@@ -1,9 +1,3 @@
-<!--
-  Generated template for the Avengers page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="marvel-color">
@@ -30,7 +24,7 @@
         Choose one character below!
       </p>
     </h3>
-    <ion-item *ngFor="let av of all_avengers">
+    <ion-item *ngFor="let av of all_avengers" (click)="openModal(av)">
       {{av.name}}
     </ion-item>
   </ion-list>

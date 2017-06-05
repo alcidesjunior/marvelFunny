@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { MarvelProvider } from '../../providers/marvel-provider';
+import { AvengersModal } from './modal/avengers-modal';
 @Component({
   selector: 'page-avengers',
   templateUrl: 'avengers.html',
@@ -11,7 +12,8 @@ export class AvengersPage implements OnInit{
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _service: MarvelProvider
+    private _service: MarvelProvider,
+    public modalCtrl: ModalController
   ) {
   }
 
@@ -23,7 +25,7 @@ export class AvengersPage implements OnInit{
     this.all_avengers = [
       {
         name: "Capitain America",
-        url: "/characters?name=capitain%20america"
+        url: "/characters?name=captain%20america"
       },
       {
         name: "Iron Man",
@@ -44,6 +46,11 @@ export class AvengersPage implements OnInit{
 
     ];
 
+  }
+
+  openModal(av) {
+    let myModal = this.modalCtrl.create(AvengersModal,av);
+    myModal.present();
   }
 
 

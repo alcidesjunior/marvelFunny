@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="marvel-color">
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary-ios" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card *ngFor="let avenger of hero">
+    <ion-card-header>
+      {{avenger.name}}
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{avenger.thumbnail.path}}.{{avenger.thumbnail.extension}}">
+      {{avenger.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
