@@ -1,13 +1,14 @@
 import { Component,OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MarvelProvider } from '../../providers/marvel-provider';
+import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit{
 
-  constructor(public navCtrl: NavController, private _service: MarvelProvider) {
+  constructor(public nav: NavController, private _service: MarvelProvider) {
 
 
   }
@@ -20,6 +21,9 @@ export class HomePage implements OnInit{
     // .then(info => {
     //   this.capitain_america = info.data.results;
     // });
+  }
+  logout(){
+    this.nav.setRoot(LoginPage);
   }
 
 }
