@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { MarvelProvider } from '../providers/marvel-provider';
-import { LoginProvider } from '../providers/login-provider';
+import { AuthProvider } from '../providers/auth-provider';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
@@ -14,6 +14,16 @@ import { AvengersModal } from '../pages/avengers/modal/avengers-modal';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from "angularfire2";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyA9853YUbX2bDVZ40VMr2RkKKx9tUNY3Xg",
+  authDomain: "marvelfunny-2539f.firebaseapp.com",
+  databaseURL: "https://marvelfunny-2539f.firebaseio.com",
+  projectId: "marvelfunny-2539f",
+  storageBucket: "marvelfunny-2539f.appspot.com",
+  messagingSenderId: "317404058609"
+};
 
 @NgModule({
   declarations: [
@@ -27,7 +37,8 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +54,7 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MarvelProvider,
-    LoginProvider
+    AuthProvider
   ]
 })
 export class AppModule {}

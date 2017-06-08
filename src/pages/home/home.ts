@@ -23,7 +23,7 @@ export class HomePage implements OnInit{
     // });
   }
   logout(){
-    this.nav.setRoot(LoginPage);
+    this.nav.parent.parent.setRoot(LoginPage);
   }
 
 }

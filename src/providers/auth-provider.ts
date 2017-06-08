@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class LoginProvider {
-
+export class AuthProvider {
+  
   constructor(private _http: Http) {
   }
 

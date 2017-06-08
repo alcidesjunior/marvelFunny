@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LoginProvider } from '../../providers/login-provider';
+import { AuthProvider } from '../../providers/auth-provider';
 import { TabsPage } from '../tabs/tabs';
 @Component({
   templateUrl: 'login.html'
@@ -8,7 +8,7 @@ import { TabsPage } from '../tabs/tabs';
 export class LoginPage implements OnInit{
   public data = {user: '', pwd: ''};
   constructor(
-    private _login: LoginProvider,
+    private _login: AuthProvider,
     public nav: NavController
   ){
 
@@ -21,6 +21,6 @@ export class LoginPage implements OnInit{
       this.nav.setRoot(TabsPage);
     }
   }
-  
+
 
 }
